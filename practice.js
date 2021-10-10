@@ -254,3 +254,32 @@ const llamaNamer = () => {
 
 const nameMaker = llamaNamer()
 // console.log(nameMaker)
+
+
+
+//--CODE FROM SLEEP
+//PULL CURRENT TIME, DAY, and DATE (OCTOBER 9, 2021)
+const currentDate = new Date()
+//RETURN SALUTATION BASED ON TIME (GOOD MORNING, GOOD AFTERNOON, GOOD EVENING)
+const salutation = (person) => {
+    const currentHour = currentDate.getHours()
+    if (currentHour > 4 && currentHour < 12) {
+        return `Good Morning, ${person}!`
+    } if (currentHour >=12 && currentHour < 17) {
+        return `Good Afternoon, ${person}!`
+    } else {
+        return `Good Evening, ${person}!`
+    }
+}
+//THEN ADD TIME AND DATE INFO
+const todayInfo = () => {
+    const weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+    const month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+    return ` Today is ${weekday[currentDate.getDay()]}, ${month[currentDate.getMonth()]} ${currentDate.getDay()}, ${currentDate.getFullYear()}. The time is currently ${currentDate.getHours()}:${currentDate.getMinutes()}`
+}
+
+const greetMelissa = salutation("Melissa") + todayInfo()
+console.log(greetMelissa)
+// FULL MESSAGE SHOULD READ IN FOLLOWING FORMAT: "Good morning, Melissa! Today is Saturday, October 9, 2021 and the time is currently 10:16AM"
+
+// console.log(currentDate.toString())
